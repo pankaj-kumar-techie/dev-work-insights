@@ -48,7 +48,7 @@ $ContributorsDir = Join-Path $ProjectRoot "contributors"
 
 # Validate template exists
 if (-not (Test-Path $TemplatePath)) {
-    Write-Error "❌ Template file not found: $TemplatePath"
+    Write-Error "[ERROR] Template file not found: $TemplatePath"
     Write-Host "   Make sure TEMPLATE.md exists in the scripts/ directory."
     exit 1
 }
@@ -64,20 +64,20 @@ function Get-ContributorName {
         
         # Validate not empty
         if ([string]::IsNullOrWhiteSpace($name)) {
-            Write-Error "❌ Name cannot be empty. Please try again."
+            Write-Error "[ERROR] Name cannot be empty. Please try again."
             continue
         }
         
         # Validate has at least first and last name
         $nameParts = $name -split '\s+'
         if ($nameParts.Count -lt 2) {
-            Write-Error "❌ Please enter both first and last name."
+            Write-Error "[ERROR] Please enter both first and last name."
             continue
         }
         
         # Validate only contains letters, spaces, hyphens, and periods
         if ($name -notmatch '^[a-zA-Z\s\-\.]+$') {
-            Write-Error "❌ Name contains invalid characters. Use only letters, spaces, hyphens, and periods."
+            Write-Error "[ERROR] Name contains invalid characters. Use only letters, spaces, hyphens, and periods."
             continue
         }
         
@@ -125,11 +125,11 @@ $filepath = Join-Path $ContributorsDir $filename
 # Check if file already exists
 if (Test-Path $filepath) {
     Write-Host ""
-    Write-Warning "⚠️  File '$filename' already exists."
+    Write-Warning "[WARNING] File '$filename' already exists."
     $overwrite = Read-Host "Overwrite? (y/N)"
     
     if ($overwrite -ne 'y' -and $overwrite -ne 'Y') {
-        Write-Error "❌ Cancelled. File not created."
+        Write-Error "[CANCELLED] File not created."
         exit 0
     }
 }
@@ -145,11 +145,11 @@ try {
     [System.IO.File]::WriteAllText($filepath, $content, $utf8NoBom)
     
     Write-Host ""
-    Write-Success "✅ Successfully created: $filepath"
+    Write-Success "[OK] Successfully created: $filepath"
     
     # Display next steps
     Write-Host ""
-    Write-ColorOutput "📝 Next steps:" "Yellow"
+    Write-ColorOutput "Next steps:" "Yellow"
     Write-Host "   1. Edit $filepath"
     Write-Host "   2. Fill in all required fields"
     Write-Host "   3. Add your projects and details"
@@ -159,11 +159,11 @@ try {
     Write-Host "   5. Submit a pull request to the repository"
     Write-Host ""
     Write-ColorOutput "============================================================" "Cyan"
-    Write-Success "✨ Profile template created successfully!"
+    Write-Success "[SUCCESS] Profile template created successfully!"
     Write-ColorOutput "============================================================" "Cyan"
     Write-Host ""
     
 } catch {
-    Write-Error "❌ Error creating file: $_"
+    Write-Error "[ERROR] Error creating file: $_"
     exit 1
 }

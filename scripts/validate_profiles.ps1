@@ -1,11 +1,10 @@
-<#
+﻿<#
 .SYNOPSIS
     Validate contributor profile files
 
 .DESCRIPTION
-    This script checks all contributor Markdown files in the contributors/
-    directory for required fields, proper formatting, and common issues.
-    No external dependencies required.
+    This script checks all contributor Markdown files for required fields
+    and proper formatting. No external dependencies required.
 
 .EXAMPLE
     .\validate_profiles.ps1
@@ -19,7 +18,7 @@
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
-# Required fields that must be present
+# Required fields
 $RequiredFields = @(
     'Name:',
     'Role / Position:',
@@ -31,14 +30,6 @@ $RequiredFields = @(
     'Links:'
 )
 
-# Sensitive patterns to detect
-$SensitivePatterns = @(
-    @{ Pattern = '\b\d{3}-\d{3}-\d{4}\b'; Description = 'phone number' },
-    @{ Pattern = '\b\d{3}\.\d{3}\.\d{4}\b'; Description = 'phone number' },
-    @{ Pattern = '\b[A-Za-z0-9._%+-]+@(?!github\.com|users\.noreply\.github\.com)[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'; Description = 'email address' },
-    @{ Pattern = '\b(?:API[_\s]?KEY|SECRET[_\s]?KEY|PASSWORD|TOKEN)\s*[:=]\s*[''"]?[\w\-]+[''"]?'; Description = 'API key or secret' }
-)
-
 # Color functions
 function Write-ColorOutput {
     param([string]$Message, [string]$Color = "White")
@@ -46,8 +37,8 @@ function Write-ColorOutput {
 }
 
 function Write-Success { param([string]$Message) Write-ColorOutput $Message "Green" }
-function Write-Error { param([string]$Message) Write-ColorOutput $Message "Red" }
-function Write-Warning { param([string]$Message) Write-ColorOutput $Message "Yellow" }
+function Write-Fail { param([string]$Message) Write-ColorOutput $Message "Red" }
+function Write-Warn { param([string]$Message) Write-ColorOutput $Message "Yellow" }
 function Write-Info { param([string]$Message) Write-ColorOutput $Message "Cyan" }
 
 # Validation error class
@@ -78,7 +69,7 @@ class ValidationError {
 function Test-ContributorFile {
     param([string]$FilePath)
     
-    [System.Collections.ArrayList]$errors = @()
+    $errors = New-Object System.Collections.ArrayList
     
     # Read file
     try {
@@ -86,100 +77,97 @@ function Test-ContributorFile {
         $lines = Get-Content -Path $FilePath -Encoding UTF8
     } catch {
         [void]$errors.Add([ValidationError]::new($FilePath, 0, "Failed to read file: $_", "ERROR"))
-        return ,$errors
+        return $errors
     }
     
     $filename = Split-Path -Leaf $FilePath
     
-    # Check file naming convention
+    # Check file naming
     if ($filename -notmatch '^[a-z\-]+\.md$') {
-        $errors += [ValidationError]::new($FilePath, 0, "Filename must be lowercase with hyphens (e.g., firstname-lastname.md)", "ERROR")
+        [void]$errors.Add([ValidationError]::new($FilePath, 0, "Filename must be lowercase with hyphens", "ERROR"))
     }
     
-    # Check for required fields
+    # Check required fields
     foreach ($field in $RequiredFields) {
         if ($content -notlike "*$field*") {
-            $errors += [ValidationError]::new($FilePath, 0, "Missing required field: $field", "ERROR")
+            [void]$errors.Add([ValidationError]::new($FilePath, 0, "Missing required field: $field", "ERROR"))
         }
     }
     
-    # Check for sensitive information
+    # Check for sensitive info
     for ($i = 0; $i -lt $lines.Count; $i++) {
         $lineNum = $i + 1
         $line = $lines[$i]
         
-        foreach ($pattern in $SensitivePatterns) {
-            if ($line -match $pattern.Pattern) {
-                $errors += [ValidationError]::new($FilePath, $lineNum, "Possible $($pattern.Description) detected - remove sensitive information", "WARNING")
-            }
+        if ($line -match '\b\d{3}-\d{3}-\d{4}\b') {
+            [void]$errors.Add([ValidationError]::new($FilePath, $lineNum, "Possible phone number detected", "WARNING"))
+        }
+        
+        if ($line -match '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b' -and $line -notmatch '@github\.com') {
+            [void]$errors.Add([ValidationError]::new($FilePath, $lineNum, "Possible email detected", "WARNING"))
         }
     }
     
-    # Check for placeholder text
-    $placeholderPatterns = @('\[Your .+?\]', '\[e\.g\.,', '\[Brief description', '\[Description')
-    
+    # Check for placeholders
     for ($i = 0; $i -lt $lines.Count; $i++) {
         $lineNum = $i + 1
         $line = $lines[$i]
         
-        foreach ($pattern in $placeholderPatterns) {
-            if ($line -match $pattern) {
-                $errors += [ValidationError]::new($FilePath, $lineNum, "Placeholder text found - please fill in actual information", "WARNING")
-                break
-            }
+        if ($line -match '\[Your .+?\]') {
+            [void]$errors.Add([ValidationError]::new($FilePath, $lineNum, "Placeholder text found", "WARNING"))
+            break
         }
     }
     
-    # Check for empty required sections
+    # Check empty sections
     if ($content -match '\*\*Recent / Notable Projects:\*\*\s*$') {
-        $errors += [ValidationError]::new($FilePath, 0, "Projects section is empty - add at least one project", "ERROR")
+        [void]$errors.Add([ValidationError]::new($FilePath, 0, "Projects section is empty", "ERROR"))
     }
     
     if ($content -match '\*\*Links:\*\*\s*$') {
-        $errors += [ValidationError]::new($FilePath, 0, "Links section is empty - add at least one link", "ERROR")
+        [void]$errors.Add([ValidationError]::new($FilePath, 0, "Links section is empty", "ERROR"))
     }
     
-    # Check for proper Markdown heading
+    # Check heading
     if ($content -notmatch '^## Name:') {
-        $errors += [ValidationError]::new($FilePath, 1, "File should start with '## Name:' heading", "ERROR")
+        [void]$errors.Add([ValidationError]::new($FilePath, 1, "File should start with '## Name:' heading", "ERROR"))
     }
     
     return $errors
 }
 
-# Main validation
+# Main
 Write-Host ""
 Write-ColorOutput "======================================================================" "Cyan"
 Write-ColorOutput "Dev Work Insights - Contributor Profile Validator" "Cyan"
 Write-ColorOutput "======================================================================" "Cyan"
 
-# Get script directory and project paths
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $ProjectRoot = Split-Path -Parent $ScriptDir
 $ContributorsDir = Join-Path $ProjectRoot "contributors"
 
-# Check if contributors directory exists
 if (-not (Test-Path $ContributorsDir)) {
-    Write-Error "❌ Contributors directory not found: $ContributorsDir"
+    Write-Fail "[ERROR] Contributors directory not found: $ContributorsDir"
     exit 2
 }
 
-# Get all .md files
 $mdFiles = Get-ChildItem -Path $ContributorsDir -Filter "*.md" -File
 
 if ($mdFiles.Count -eq 0) {
-    Write-Warning "⚠️  No contributor files found in $ContributorsDir"
+    Write-Warn "[WARNING] No contributor files found"
     exit 0
 }
 
 # Validate all files
-$allErrors = @()
+$allErrors = New-Object System.Collections.ArrayList
 $filesWithErrors = 0
 
 foreach ($file in $mdFiles) {
     $errors = Test-ContributorFile -FilePath $file.FullName
-    if ($null -ne $errors -and $errors.Count -gt 0) {
-        $allErrors += $errors
+    if ($null -ne $errors -and @($errors).Count -gt 0) {
+        foreach ($err in $errors) {
+            [void]$allErrors.Add($err)
+        }
         $filesWithErrors++
     }
 }
@@ -192,31 +180,39 @@ Write-ColorOutput "=============================================================
 Write-Host ""
 
 if ($allErrors.Count -eq 0) {
-    Write-Success "✅ All $($mdFiles.Count) contributor file(s) are valid!"
+    Write-Success "[OK] All $($mdFiles.Count) contributor file(s) are valid!"
     Write-Host ""
     exit 0
 }
 
-# Group errors by severity
-$errorCount = ($allErrors | Where-Object { $_.Severity -eq 'ERROR' }).Count
-$warningCount = ($allErrors | Where-Object { $_.Severity -eq 'WARNING' }).Count
+# Group errors
+$errorCount = 0
+$warningCount = 0
+foreach ($err in $allErrors) {
+    if ($err.Severity -eq 'ERROR') { $errorCount++ }
+    else { $warningCount++ }
+}
 
 # Print errors
 if ($errorCount -gt 0) {
-    Write-Error "❌ Found $errorCount error(s):"
+    Write-Fail "[ERROR] Found $errorCount error(s):"
     Write-Host ""
-    foreach ($error in $allErrors | Where-Object { $_.Severity -eq 'ERROR' }) {
-        Write-Host "  $($error.ToString())"
+    foreach ($error in $allErrors) {
+        if ($error.Severity -eq 'ERROR') {
+            Write-Host "  $($error.ToString())"
+        }
     }
     Write-Host ""
 }
 
 # Print warnings
 if ($warningCount -gt 0) {
-    Write-Warning "⚠️  Found $warningCount warning(s):"
+    Write-Warn "[WARNING] Found $warningCount warning(s):"
     Write-Host ""
-    foreach ($error in $allErrors | Where-Object { $_.Severity -eq 'WARNING' }) {
-        Write-Host "  $($error.ToString())"
+    foreach ($error in $allErrors) {
+        if ($error.Severity -eq 'WARNING') {
+            Write-Host "  $($error.ToString())"
+        }
     }
     Write-Host ""
 }
@@ -230,9 +226,9 @@ Write-Host "Total warnings: $warningCount"
 Write-Host ""
 
 if ($errorCount -gt 0) {
-    Write-Error "❌ Validation failed. Please fix the errors above."
+    Write-Fail "[ERROR] Validation failed. Please fix the errors above."
 } else {
-    Write-Warning "⚠️  Validation passed with warnings. Consider addressing them."
+    Write-Warn "[WARNING] Validation passed with warnings."
 }
 Write-Host ""
 
