@@ -1,0 +1,6 @@
+# No external dependencies required for basic functionality
+# The scripts use only Python standard library
+
+# Optional: For future enhancements
+# pyyaml>=6.0  # For YAML parsing if needed
+# markdown>=3.4  # For advanced Markdown processing
