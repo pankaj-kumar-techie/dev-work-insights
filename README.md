@@ -1,7 +1,4 @@
-# Dev Work Insights
-
-
-
+# Dev Work
 [![Contributors](https://img.shields.io/github/contributors/yourusername/dev-work-insights?style=for-the-badge)](https://github.com/yourusername/dev-work-insights/graphs/contributors)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](CONTRIBUTING.md)
@@ -9,8 +6,6 @@
 **A curated collection of developer work insights, projects, and learning habits.**
 
 [Quick Start](#-quick-start) • [Contributing](CONTRIBUTING.md) • [Examples](#-examples) • [FAQ](#-faq)
-
-
 ---
 
 ## 🎯 What is This?
@@ -47,6 +42,7 @@ mindmap
 ### Why It Matters
 
 Traditional profiles don't show:
+
 - ✗ How developers actually work
 - ✗ What tools they use daily
 - ✗ Their learning approach
@@ -73,11 +69,13 @@ graph LR
 ```
 
 **Windows:**
+
 ```cmd
 .\generate.bat
 ```
 
 **Linux/macOS:**
+
 ```bash
 ./generate.sh
 ```
@@ -114,10 +112,10 @@ graph LR
 
 | ❌ Generic | ✅ Specific |
 |-----------|------------|
-| "Passionate developer" | "Full-stack developer specializing in real-time collaboration tools using React and WebSockets" |
-| "Always learning" | "Learning Rust via 'The Rust Programming Language' and building a CLI tool for log parsing" |
-| "Team player" | "Prefer async-first communication, 4-hour deep work blocks in mornings, small teams (5-10 people)" |
-| "Built web apps" | "Built e-commerce platform with Next.js, reduced page load by 60%, handles 10k+ daily users" |
+| "Passionate developer" | "Full-stack developer specializing in real-time<br>collaboration tools using React and WebSockets" |
+| "Always learning" | "Learning Rust via 'The Rust Programming Language'<br>and building a CLI tool for log parsing" |
+| "Team player" | "Prefer async-first communication, 4-hour deep work<br>blocks in mornings, small teams (5-10 people)" |
+| "Built web apps" | "Built e-commerce platform with Next.js, reduced<br>page load by 60%, handles 10k+ daily users" |
 
 ### Sample Profile
 
@@ -127,14 +125,18 @@ See [contributors/pankaj-kumar.md](contributors/pankaj-kumar.md) for a complete 
 
 ## 🎨 What Makes a Great Profile?
 
+
 ### 1. Specific Work Style
+
 ```markdown
 ✅ "Remote-only, async-first communication (Slack over meetings), 
     prefer 4-hour deep work blocks, small teams (5-10), 
     VSCode with Vim keybindings"
 ```
 
+
 ### 2. Real Projects with Impact
+
 ```markdown
 ✅ "Real-Time Collaboration Platform (2024):
     Built document collaboration tool using React, WebSockets, 
@@ -142,7 +144,9 @@ See [contributors/pankaj-kumar.md](contributors/pankaj-kumar.md) for a complete 
     Reduced conflict resolution time by 80%."
 ```
 
+
 ### 3. Actionable Tools & Automation
+
 ```markdown
 ✅ "Custom Python script to sync GitHub issues with Notion,
     Tmux sessions with automated window layouts,
@@ -153,16 +157,19 @@ See [contributors/pankaj-kumar.md](contributors/pankaj-kumar.md) for a complete 
 
 ## 🔧 Repository Features
 
+
 ### Zero Dependencies
 - **Windows**: Built-in PowerShell
 - **Linux/macOS**: Built-in Bash
 - **No installation required**
+
 
 ### Automated Validation
 - Checks required fields
 - Detects sensitive information
 - Validates file naming
 - Ensures quality standards
+
 
 ### Cross-Platform
 - Works on Windows, Linux, macOS
@@ -173,7 +180,7 @@ See [contributors/pankaj-kumar.md](contributors/pankaj-kumar.md) for a complete 
 
 ## 📁 Repository Structure
 
-```
+```text
 dev-work-insights/
 ├── README.md                    # This file
 ├── CONTRIBUTING.md              # Detailed contribution guide
@@ -224,17 +231,22 @@ sequenceDiagram
 
 ## ❓ FAQ
 
+
 ### Who can contribute?
 Any technical contributor: developers, engineers, data scientists, DevOps engineers.
+
 
 ### What if I'm a junior developer?
 Perfect! Share your learning journey and projects. Quality matters, not seniority.
 
+
 ### Can I update my profile later?
 Yes! Simply edit your file and submit a new PR.
 
+
 ### How long does review take?
 Usually 24-48 hours. Automated validation is instant.
+
 
 ### What if validation fails?
 Read the error messages, fix the issues, and re-validate. It's that simple.
@@ -243,11 +255,13 @@ Read the error messages, fix the issues, and re-validate. It's that simple.
 
 ## 📊 Use Cases
 
+
 ### For Developers
 - Discover peers with similar interests
 - Find new tools and automation ideas
 - Explore career paths
 - Share your work and get visibility
+
 
 ### For Recruiters
 - Understand real work styles
@@ -255,11 +269,13 @@ Read the error messages, fix the issues, and re-validate. It's that simple.
 - Find culture fit, not just skills
 - Connect with developers directly
 
+
 ### For Founders
 - Find developers who match your team
 - Understand work preferences
 - See real-world experience
 - Build diverse teams
+
 
 ### For AI & Analytics
 - Structured, parseable data
@@ -281,7 +297,8 @@ Read the error messages, fix the issues, and re-validate. It's that simple.
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
+for details.
 
 ---
 
@@ -294,10 +311,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-<div align="center">
-
 **Made with ❤️ by developers, for developers**
 
 [⬆ Back to Top](#dev-work-insights)
-
-</div>

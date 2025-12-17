@@ -2,39 +2,48 @@
 
 ## 🚀 Quick Start (4 Simple Steps)
 
+
 ### Step 1: Generate Your Profile
 **Windows:**
+
 ```cmd
 .\generate.bat
 ```
 
 **Linux/macOS:**
+
 ```bash
 ./generate.sh
 ```
 
 Enter your name when prompted. Done!
 
+
 ### Step 2: Edit Your Profile
 Open `contributors/yourname.md` and fill in:
+
 - Your role and tech stack
 - Work preferences
 - Projects you've built
 - Career goals
 - Links (GitHub, portfolio, etc.)
 
+
 ### Step 3: Validate
 **Windows:**
+
 ```powershell
 .\scripts\validate_profiles.ps1
 ```
 
 **Linux/macOS:**
+
 ```bash
 ./scripts/validate_profiles.sh
 ```
 
 Fix any errors shown.
+
 
 ### Step 4: Submit
 ```bash
@@ -50,6 +59,7 @@ Then create a Pull Request on GitHub. That's it!
 ## 📋 What to Include
 
 **Required:**
+
 - Name & Role
 - Tech Stack
 - Work Style
@@ -59,6 +69,7 @@ Then create a Pull Request on GitHub. That's it!
 - At least 1 Link
 
 **Don't Include:**
+
 - Phone numbers
 - Personal email
 - Home address
@@ -69,12 +80,13 @@ Then create a Pull Request on GitHub. That's it!
 ## 🎯 File Naming
 
 Format: `firstname-lastname.md`
+
 - All lowercase
 - Hyphens for spaces
 - Example: `pankaj-kumar.md`
 
 ---
 
-## ✅ That's It!
+## ✅ That's It
 
 No Python, no Node.js, no installation needed. Just run, edit, validate, and submit!
