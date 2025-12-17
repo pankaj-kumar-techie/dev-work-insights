@@ -31,7 +31,6 @@ We enforce strict security and quality controls to maintain repository integrity
 
 ## 📝 Commit & PR Rules
 
-
 ### Commit Messages
 We follow the **Conventional Commits** specification:
 
@@ -134,6 +133,7 @@ Open `contributors/yourname.md` and fill in:
 ```
 
 **Validation checks:**
+
 - ✓ All required fields present
 - ✓ No placeholder text
 - ✓ No sensitive information
@@ -213,11 +213,10 @@ git push origin add-yourname
 ### Be Specific, Not Generic
 
 | ❌ Generic | ✅ Specific |
-|-----------|------------|
-| "Passionate developer" | "Full-stack developer specializing in real-time collaboration tools" |
-| "Love learning" | "Learning Rust via 'The Rust Book' and building a CLI log parser" |
-| "Team player" | "Prefer async-first communication, 4-hour deep work blocks, small teams (5-10)" |
-| "Built web apps" | "Built e-commerce platform with Next.js, reduced load time by 60%, 10k+ daily users" |
+| "Passionate developer" | "Full-stack developer specializing in real-time<br>collaboration tools" |
+| "Love learning" | "Learning Rust via 'The Rust Book' and building a<br>CLI log parser" |
+| "Team player" | "Prefer async-first communication, 4-hour deep work<br>blocks, small teams (5-10)" |
+| "Built web apps" | "Built e-commerce platform with Next.js, reduced<br>load time by 60%, 10k+ daily users" |
 
 ### Include Real Projects
 
