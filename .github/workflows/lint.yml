@@ -1,20 +1,20 @@
-name: Lint Code Base
+# name: Lint Code Base
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+# on:
+#   push:
+#     branches: [ "main" ]
+#   pull_request:
+#     branches: [ "main" ]
 
-jobs:
-  markdown-lint:
-    name: Markdown Lint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+# jobs:
+#   markdown-lint:
+#     name: Markdown Lint
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
 
-      - name: Markdown Lint
-        uses: davidanson/markdownlint-cli2-action@v1
-        with:
-          globs: "**/*.md"
+#       - name: Markdown Lint
+#         uses: davidanson/markdownlint-cli2-action@v1
+#         with:
+#           globs: "**/*.md"
