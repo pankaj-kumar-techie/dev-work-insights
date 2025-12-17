@@ -1,7 +1,8 @@
 # Dev Work Insights - Quick Reference
 
 ## 📁 File Structure
-```
+
+```text
 dev-work-insights/
 ├── README.md                    # Main documentation
 ├── CONTRIBUTING.md              # Contribution guidelines
@@ -27,11 +28,13 @@ dev-work-insights/
 ### Create New Profile
 
 **Windows:**
+
 ```cmd
 .\generate.bat
 ```
 
 **Linux/macOS:**
+
 ```bash
 ./generate.sh
 ```
@@ -39,11 +42,13 @@ dev-work-insights/
 ### Validate All Profiles
 
 **Windows:**
+
 ```powershell
 .\scripts\validate_profiles.ps1
 ```
 
 **Linux/macOS:**
+
 ```bash
 ./scripts/validate_profiles.sh
 ```
@@ -86,19 +91,22 @@ dev-work-insights/
 ## 📝 File Naming
 
 Format: `firstname-lastname.md`
+
 - All lowercase
 - Hyphens for spaces
 - No special characters
 
 Examples:
+
 - ✅ `pankaj-kumar.md`
 - ✅ `john-smith.md`
 - ❌ `Jane_Doe.md`
 - ❌ `john.smith.md`
 
-## 💡 No Installation Required!
+## 💡 No Installation Required
 
 All scripts work natively on your operating system:
+
 - **Windows**: PowerShell (built-in)
 - **Linux/macOS**: Bash (built-in)
 - **No Python, Node.js, or other runtimes needed**
@@ -108,6 +116,7 @@ All scripts work natively on your operating system:
 ### Direct Script Execution
 
 **Windows:**
+
 ```powershell
 # Generate profile
 .\scripts\generate_profile.ps1
@@ -117,6 +126,7 @@ All scripts work natively on your operating system:
 ```
 
 **Linux/macOS:**
+
 ```bash
 # Make executable (first time only)
 chmod +x scripts/*.sh

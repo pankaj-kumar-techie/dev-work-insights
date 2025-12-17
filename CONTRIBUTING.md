@@ -31,6 +31,7 @@ We enforce strict security and quality controls to maintain repository integrity
 
 ## 📝 Commit & PR Rules
 
+
 ### Commit Messages
 We follow the **Conventional Commits** specification:
 
@@ -45,7 +46,6 @@ We follow the **Conventional Commits** specification:
 
 **Example:**
 `feat(profile): add pankaj-kumar profile`
-
 
 ### Pull Request Requirements
 
@@ -212,15 +212,19 @@ git push origin add-yourname
 
 ### Be Specific, Not Generic
 
+<!-- markdownlint-disable MD013 -->
 | ❌ Generic | ✅ Specific |
-| "Passionate developer" | "Full-stack developer specializing in real-time<br>collaboration tools" |
-| "Love learning" | "Learning Rust via 'The Rust Book' and building a<br>CLI log parser" |
-| "Team player" | "Prefer async-first communication, 4-hour deep work<br>blocks, small teams (5-10)" |
-| "Built web apps" | "Built e-commerce platform with Next.js, reduced<br>load time by 60%, 10k+ daily users" |
+|-----------|------------|
+| "Passionate developer" | "Full-stack developer specializing in real-time collaboration tools" |
+| "Love learning" | "Learning Rust via 'The Rust Book' and building a CLI log parser" |
+| "Team player" | "Prefer async-first communication, 4-hour deep work blocks, small teams (5-10)" |
+| "Built web apps" | "Built e-commerce platform with Next.js, reduced load time by 60%, 10k+ daily users" |
+<!-- markdownlint-enable MD013 -->
 
 ### Include Real Projects
 
 **Good project description:**
+
 ```markdown
 - **Real-Time Collaboration Platform** (2024):  
   Built document collaboration tool using React, WebSockets, and OT algorithms. 
@@ -229,6 +233,7 @@ git push origin add-yourname
 ```
 
 **Bad project description:**
+
 ```markdown
 - Built various web applications using modern technologies
 ```
@@ -236,6 +241,7 @@ git push origin add-yourname
 ### Share Actionable Tools
 
 **Good:**
+
 ```markdown
 - Custom Python script to sync GitHub issues with Notion
 - Tmux + Neovim setup with LSP for Go and TypeScript
@@ -243,6 +249,7 @@ git push origin add-yourname
 ```
 
 **Bad:**
+
 ```markdown
 - Use productivity tools
 ```
@@ -275,12 +282,14 @@ git push origin add-yourname
 **Format:** `firstname-lastname.md`
 
 **Rules:**
+
 - All lowercase letters
 - Hyphens for spaces
 - No special characters
 - `.md` extension
 
 **Examples:**
+
 - ✅ `pankaj-kumar.md`
 - ✅ `john-smith.md`
 - ✅ `maria-garcia.md`
@@ -343,17 +352,22 @@ Before submitting, ensure:
 
 ## 💡 Tips for a Great Profile
 
+
 ### 1. Be Authentic
 Share your real work style and preferences, not what you think people want to hear.
+
 
 ### 2. Be Specific
 Include actual tools, scripts, and workflows you use daily.
 
+
 ### 3. Be Current
 Update your profile as you grow and learn new things.
 
+
 ### 4. Be Helpful
 Share insights that others can learn from.
+
 
 ### 5. Be Professional
 Keep it focused on technical work and career goals.
@@ -362,17 +376,22 @@ Keep it focused on technical work and career goals.
 
 ## ❓ FAQ
 
+
 ### Can I update my profile later?
 Yes! Simply edit your file and submit a new PR.
+
 
 ### What if I don't have many projects?
 Quality over quantity. One detailed project is better than five generic ones.
 
+
 ### Can I include side projects?
 Absolutely! Side projects often show passion and initiative.
 
+
 ### How long should my profile be?
 Aim for 50-100 lines. Be comprehensive but concise.
+
 
 ### What if validation fails?
 Read the error messages carefully and fix the issues. Re-run validation until it passes.
