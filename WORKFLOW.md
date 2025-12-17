@@ -71,7 +71,7 @@ Then create a Pull Request on GitHub. That's it!
 Format: `firstname-lastname.md`
 - All lowercase
 - Hyphens for spaces
-- Example: `jane-doe.md`
+- Example: `pankaj-kumar.md`
 
 ---
 

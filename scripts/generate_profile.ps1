@@ -57,7 +57,7 @@ if (-not (Test-Path $TemplatePath)) {
 function Get-ContributorName {
     while ($true) {
         Write-Host ""
-        $name = Read-Host "Enter contributor's full name (e.g., Jane Doe)"
+        $name = Read-Host "Enter contributor's full name (e.g., Pankaj Kumar)"
         
         # Trim whitespace
         $name = $name.Trim()

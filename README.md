@@ -122,7 +122,7 @@ graph LR
 
 ### Sample Profile
 
-See [contributors/jane-doe.md](contributors/jane-doe.md) for a complete example.
+See [contributors/pankaj-kumar.md](contributors/pankaj-kumar.md) for a complete example.
 
 ---
 
@@ -184,7 +184,7 @@ dev-work-insights/
 ├── generate.bat                 # Windows launcher
 ├── generate.sh                  # Linux/macOS launcher
 ├── contributors/                # All developer profiles
-│   └── jane-doe.md             # Sample profile
+│   └── pankaj-kumar.md             # Sample profile
 └── scripts/                     # Validation & generation tools
     ├── generate_profile.ps1    # Windows generator
     ├── generate_profile.sh     # Linux/macOS generator
@@ -291,7 +291,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Contributing Guide](CONTRIBUTING.md) - Detailed instructions
 - [Workflow Guide](WORKFLOW.md) - Quick 4-step process
 - [Quick Reference](QUICK_REFERENCE.md) - Command cheatsheet
-- [Sample Profile](contributors/jane-doe.md) - Example to follow
+- [Sample Profile](contributors/pankaj-kumar.md) - Example profile to follow
 
 ---
 

@@ -9,7 +9,7 @@ dev-work-insights/
 ├── generate.bat                 # Windows launcher
 ├── generate.sh                  # Linux/macOS launcher
 ├── contributors/                # Developer profiles
-│   └── jane-doe.md             # Sample profile
+│   └── pankaj-kumar.md             # Sample profile
 ├── scripts/                     # Cross-platform tools
 │   ├── generate_profile.ps1    # Windows generator
 │   ├── generate_profile.sh     # Linux/macOS generator
@@ -91,7 +91,7 @@ Format: `firstname-lastname.md`
 - No special characters
 
 Examples:
-- ✅ `jane-doe.md`
+- ✅ `pankaj-kumar.md`
 - ✅ `john-smith.md`
 - ❌ `Jane_Doe.md`
 - ❌ `john.smith.md`

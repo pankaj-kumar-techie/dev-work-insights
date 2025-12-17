@@ -50,7 +50,7 @@ fi
 get_contributor_name() {
     while true; do
         echo ""
-        read -p "Enter contributor's full name (e.g., Jane Doe): " name
+        read -p "Enter contributor's full name (e.g., Pankaj Kumar): " name
         
         # Trim whitespace
         name=$(echo "$name" | xargs)

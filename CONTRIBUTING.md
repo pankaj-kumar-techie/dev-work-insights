@@ -60,7 +60,7 @@ Open `contributors/yourname.md` and fill in:
 
 | Field | Description | Example |
 |-------|-------------|---------|
-| **Name** | Your full name | Jane Doe |
+| **Name** | Your full name | Pankaj Kumar |
 | **Role** | Current position | Senior Full-Stack Developer |
 | **Tech Stack** | Primary technologies | React, Node.js, PostgreSQL |
 | **Work Style** | How you prefer to work | Remote-only, async-first |
@@ -232,7 +232,7 @@ git push origin add-yourname
 - `.md` extension
 
 **Examples:**
-- ✅ `jane-doe.md`
+- ✅ `pankaj-kumar.md`
 - ✅ `john-smith.md`
 - ✅ `maria-garcia.md`
 - ❌ `Jane_Doe.md`
@@ -332,7 +332,7 @@ Read the error messages carefully and fix the issues. Re-run validation until it
 
 ## 🆘 Getting Help
 
-- **Check the sample**: See [contributors/jane-doe.md](contributors/jane-doe.md)
+- **Check the sample**: See [contributors/pankaj-kumar.md](contributors/pankaj-kumar.md)
 - **Read the README**: See [README.md](README.md)
 - **Open an issue**: Ask questions on GitHub Issues
 - **Review existing profiles**: Learn from other contributors
@@ -344,7 +344,7 @@ Read the error messages carefully and fix the issues. Re-run validation until it
 - [README.md](README.md) - Repository overview
 - [WORKFLOW.md](WORKFLOW.md) - Quick 4-step guide
 - [QUICK_REFERENCE.md](QUICK_REFERENCE.md) - Command reference
-- [contributors/jane-doe.md](contributors/jane-doe.md) - Example profile
+- [contributors/pankaj-kumar.md](contributors/pankaj-kumar.md) - Example profile
 
 ---
 
