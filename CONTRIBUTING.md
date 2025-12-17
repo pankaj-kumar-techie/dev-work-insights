@@ -6,9 +6,47 @@ Thank you for your interest in contributing! This guide will help you create a h
 
 - [Quick Start](#quick-start)
 - [Detailed Guide](#detailed-guide)
+- [Security & Branch Protection](#security--branch-protection)
+- [Commit & PR Rules](#commit--pr-rules)
 - [Profile Structure](#profile-structure)
 - [Quality Guidelines](#quality-guidelines)
 - [Submission Process](#submission-process)
+
+---
+
+## 🛡️ Security & Branch Protection
+
+We enforce strict security and quality controls to maintain repository integrity.
+
+### Branch Rules
+- **Direct Pushes Restricted**: You cannot push directly to `main`.
+- **Pull Requests Required**: All changes must go through a PR.
+- **Reviews Required**: At least 1-2 approvals needed before merging.
+- **Status Checks**: All CI/CD checks (validation, linting, security) must pass.
+- **Linear History**: We use squash or rebase merging.
+
+---
+
+## 📝 Commit & PR Rules
+
+### Commit Messages
+We follow the **Conventional Commits** specification:
+
+`<type>(<scope>): <short description>`
+
+**Types:**
+- `feat`: New feature (e.g., adding a profile)
+- `fix`: Bug fix
+- `docs`: Documentation only
+- `chore`: Maintenance/Refactoring
+
+**Example:**
+`feat(profile): add pankaj-kumar profile`
+
+### Pull Request Requirements
+1. **Title**: Must match commit style (e.g., `feat: add pankaj-kumar profile`)
+2. **Template**: Fill out the PR template completely.
+3. **Validation**: Ensure all local scripts pass before opening.
 
 ---
 
@@ -108,8 +146,11 @@ git add contributors/yourname.md
 git commit -m "Add [Your Name] profile"
 
 # Push to your fork
+# Push to your fork
 git push origin add-yourname
 ```
+
+**Note:** If possible, sign your commits (`git commit -S ...`) for verified status.
 
 **Then create a Pull Request on GitHub.**
 
