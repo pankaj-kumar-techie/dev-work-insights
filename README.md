@@ -1,6 +1,6 @@
 # Dev Work Insights
 
-<div align="center">
+
 
 [![Contributors](https://img.shields.io/github/contributors/yourusername/dev-work-insights?style=for-the-badge)](https://github.com/yourusername/dev-work-insights/graphs/contributors)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
@@ -10,7 +10,6 @@
 
 [Quick Start](#-quick-start) • [Contributing](CONTRIBUTING.md) • [Examples](#-examples) • [FAQ](#-faq)
 
-</div>
 
 ---
 
