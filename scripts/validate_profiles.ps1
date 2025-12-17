@@ -151,7 +151,7 @@ if (-not (Test-Path $ContributorsDir)) {
     exit 2
 }
 
-$mdFiles = Get-ChildItem -Path $ContributorsDir -Filter "*.md" -File
+$mdFiles = @(Get-ChildItem -Path $ContributorsDir -Filter "*.md" -File)
 
 if ($mdFiles.Count -eq 0) {
     Write-Warn "[WARNING] No contributor files found"
