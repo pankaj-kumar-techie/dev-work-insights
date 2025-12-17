@@ -59,4 +59,4 @@ Mountain-based engineer from Himachal Pradesh. Enjoy trekking, long walks, and b
 **Links:**  
 - GitHub: https://github.com/pankaj-kumar-techie
 - LinkedIn: https://linkedin.com/in/pankaj-kumar-techie
-- Portfolio: https://pankajkumar.techie
+- Portfolio: https://pankaj-kumar-techie.github.io
