@@ -1,6 +1,7 @@
 # Contributing to Dev Work Insights
 
-Thank you for your interest in contributing! This guide will help you create a high-quality developer profile.
+Thank you for your interest in contributing!
+This guide will help you create a high-quality developer profile.
 
 ## 📋 Table of Contents
 
@@ -19,6 +20,7 @@ Thank you for your interest in contributing! This guide will help you create a h
 We enforce strict security and quality controls to maintain repository integrity.
 
 ### Branch Rules
+
 - **Direct Pushes Restricted**: You cannot push directly to `main`.
 - **Pull Requests Required**: All changes must go through a PR.
 - **Reviews Required**: At least 1-2 approvals needed before merging.
@@ -29,12 +31,14 @@ We enforce strict security and quality controls to maintain repository integrity
 
 ## 📝 Commit & PR Rules
 
+
 ### Commit Messages
 We follow the **Conventional Commits** specification:
 
 `<type>(<scope>): <short description>`
 
 **Types:**
+
 - `feat`: New feature (e.g., adding a profile)
 - `fix`: Bug fix
 - `docs`: Documentation only
@@ -43,7 +47,9 @@ We follow the **Conventional Commits** specification:
 **Example:**
 `feat(profile): add pankaj-kumar profile`
 
+
 ### Pull Request Requirements
+
 1. **Title**: Must match commit style (e.g., `feat: add pankaj-kumar profile`)
 2. **Template**: Fill out the PR template completely.
 3. **Validation**: Ensure all local scripts pass before opening.
@@ -76,16 +82,19 @@ graph LR
 ### Step 1: Generate Your Profile
 
 **Windows:**
+
 ```cmd
 .\generate.bat
 ```
 
 **Linux/macOS:**
+
 ```bash
 ./generate.sh
 ```
 
 **What happens:**
+
 - Script prompts for your full name
 - Creates `contributors/firstname-lastname.md`
 - Pre-fills template with your name
